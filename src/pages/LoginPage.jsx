@@ -54,6 +54,7 @@ function LoginPage() {
             fullWidth
             required
             autoFocus
+            type="email"
             sx={{ mb: 2 }}
             onChange={(e) => {
               usernameRef.current = e.target.value;
@@ -64,6 +65,7 @@ function LoginPage() {
             fullWidth
             required
             autoFocus
+            type="password"
             sx={{ mb: 2 }}
             onChange={(e) => {
               passwordRef.current = e.target.value;
@@ -80,6 +82,7 @@ function LoginPage() {
           </Button>
         </Box>
       </Paper>
+      <Typography color="#B4B4B8">hint : aimsalam@hotmail.com, 123</Typography>
     </Container>
   );
 }

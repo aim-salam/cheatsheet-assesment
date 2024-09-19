@@ -29,7 +29,10 @@ function MainContent({ topic }) {
       xs={12}
       sm={9}
       md={10}
-      sx={{ paddingRight: "40px", flex: "1 1 auto" }}
+      sx={{
+        paddingRight: "40px",
+        flex: "1 1 auto",
+      }}
     >
       <Typography
         fontSize={40}

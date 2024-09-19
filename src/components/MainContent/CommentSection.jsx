@@ -9,6 +9,7 @@ import {
   ListItemText,
   ListItemSecondaryAction,
   IconButton,
+  Divider,
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -47,22 +48,7 @@ const CommentSection = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 600, mx: "auto", mt: 4 }}>
-      <List sx={{ mt: 3 }}>
-        {comments.map((c, index) => (
-          <ListItem key={index}>
-            <ListItemText primary={c} />
-            <ListItemSecondaryAction>
-              <IconButton edge="end" onClick={() => handleEditComment(index)}>
-                <EditIcon />
-              </IconButton>
-              <IconButton edge="end" onClick={() => handleDeleteComment(index)}>
-                <DeleteIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-        ))}
-      </List>
+    <Box sx={{ maxWidth: 600, mt: 4 }}>
       <Typography variant="h6">Comments</Typography>
       <TextField
         fullWidth
@@ -75,6 +61,23 @@ const CommentSection = () => {
       <Button variant="contained" onClick={handleCommentSubmit}>
         {editingIndex !== null ? "Update" : "Submit"}
       </Button>
+
+      <List sx={{ mt: 3 }}>
+        {comments.map((c, index) => (
+          <>
+            <ListItem key={index}>
+              <ListItemText primary={c} />
+
+              <IconButton edge="end" onClick={() => handleEditComment(index)}>
+                <EditIcon />
+              </IconButton>
+              <IconButton edge="end" onClick={() => handleDeleteComment(index)}>
+                <DeleteIcon />
+              </IconButton>
+            </ListItem>
+          </>
+        ))}
+      </List>
     </Box>
   );
 };
