@@ -17,8 +17,22 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    navigate("/");
+    if (usernameRef.current && passwordRef.current) {
+      login(usernameRef.current, passwordRef.current);
+    } else {
+      alert(`Please enter a username and password`);
+    }
   };
+
+  function login(username, password) {
+    if (username === "aimsalam@hotmail.com" && password === "123") {
+      navigate("/");
+      // alert("Succesful login!");
+    } else {
+      alert("User not found. Please sign in again");
+    }
+  }
+
   return (
     <Container maxWidth="xs">
       <Paper elevation={10} sx={{ marginTop: 8, padding: 2 }}>

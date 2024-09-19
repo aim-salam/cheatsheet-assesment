@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   List,
   ListItemButton,
@@ -7,23 +7,32 @@ import {
   Stack,
   Typography,
   Grid2,
+  Button,
 } from "@mui/material";
 import { topics } from "../../db/topics";
 import logo from "./../../assets/logo.jpg";
+import AddTopicButton from "./AddTopicButton";
+import TopicModal from "../Modals/TopicModal";
+const parentStyle = {
+  marginTop: "40px",
+  marginBottom: "10px",
+  fontSize: "25px",
+  avatarSize: "30px",
+};
+
+const childStyle = {
+  fontSize: "17px",
+  avatarSize: "25px",
+};
+
+const getStyle = (type) => (type === "parent" ? parentStyle : childStyle);
+
 function TopicList({ setTopic }) {
-  const parentStyle = {
-    marginTop: "40px",
-    marginBottom: "10px",
-    fontSize: "25px",
-    avatarSize: "30px",
-  };
+  const [topicss, setTopicss] = useState(topics);
 
-  const childStyle = {
-    fontSize: "17px",
-    avatarSize: "25px",
+  const handleAddTopic = (topic) => {
+    setTopicss([...topicss, topic]);
   };
-
-  const getStyle = (type) => (type === "parent" ? parentStyle : childStyle);
 
   return (
     <Grid2
@@ -31,10 +40,13 @@ function TopicList({ setTopic }) {
       xs={12}
       sm={3}
       md={2}
-      sx={{ display: { xs: "none", sm: "block" }, width: "250px" }}
+      sx={{
+        display: { xs: "none", sm: "block" },
+        width: "250px",
+      }}
     >
       <List>
-        {topics.map((topic) => {
+        {topicss.map((topic) => {
           const { topic: topicName, type, imageLink } = topic;
           const { marginTop, marginBottom, fontSize, avatarSize } =
             getStyle(type);
@@ -77,6 +89,7 @@ function TopicList({ setTopic }) {
           );
         })}
       </List>
+      {/* <AddTopicButton handleAddTopic={handleAddTopic}></AddTopicButton> */}
     </Grid2>
   );
 }
