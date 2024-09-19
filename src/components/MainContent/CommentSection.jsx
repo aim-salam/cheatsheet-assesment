@@ -48,7 +48,7 @@ const CommentSection = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 600, mt: 4 }}>
+    <Box sx={{ maxWidth: 600, mt: 4, marginBottom: "100px" }}>
       <Typography variant="h6">Comments</Typography>
       <TextField
         fullWidth

@@ -10,11 +10,13 @@ import {
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { setUsername } from "../redux/store";
 function LoginPage() {
   const usernameRef = useRef("");
   const passwordRef = useRef("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = () => {
     if (usernameRef.current && passwordRef.current) {
@@ -27,6 +29,7 @@ function LoginPage() {
   function login(username, password) {
     if (username === "aimsalam@hotmail.com" && password === "123") {
       navigate("/");
+      dispatch(setUsername(usernameRef.current));
       // alert("Succesful login!");
     } else {
       alert("User not found. Please sign in again");

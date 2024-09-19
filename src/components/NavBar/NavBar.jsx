@@ -3,6 +3,8 @@ import { Stack, Avatar, Typography, AppBar } from "@mui/material";
 import logo from "./../../assets/logo.jpg";
 import ColorModeSwitch from "./../Switch/ColorModeSwitch";
 import LogoutButton from "./LogoutButton";
+import CountdownTimer from "./CountDownTimer";
+import UserNameTypography from "./UserNameTypography";
 function NavBar({ mode }) {
   return (
     <AppBar
@@ -31,7 +33,9 @@ function NavBar({ mode }) {
           </Typography>
         </Stack>
         <Stack flexDirection={"row"} alignItems={"center"}>
+          <CountdownTimer></CountdownTimer>
           <ColorModeSwitch></ColorModeSwitch>
+          <UserNameTypography></UserNameTypography>
           <LogoutButton></LogoutButton>
         </Stack>
       </Stack>
